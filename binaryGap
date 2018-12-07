@@ -1,0 +1,28 @@
+def solution(N):
+    Nb=bin(N)
+    flag=False
+    c=0
+    k=0
+    gap={}
+    for i in range(2,len(Nb)):
+        if(Nb[i]=='1'):
+            if(c==0):
+                flag=True
+            else:
+                flag=True
+                gap[k]=c
+                c=0
+                k+=1
+        else:
+            if(flag):
+                c+=1
+    res=0
+    if not gap:
+        res=0
+    else:
+        res=max(gap.values()) 
+    return res
+    pass
+
+k=1097
+print('longest gap =',solution(k))
